@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MapBottomItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_50</item>
+        <item name="android:background">@drawable/xml_system_press</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/xml_text_bottom_press</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+</resources>

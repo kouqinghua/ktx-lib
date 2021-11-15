@@ -1,0 +1,3 @@
+include ':ktx-lib'
+include ':app'
+rootProject.name = "ktx_lib"

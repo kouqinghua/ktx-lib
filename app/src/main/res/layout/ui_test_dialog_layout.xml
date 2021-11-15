@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            style="@style/Margin15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_15"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="请支付类型"
+                    android:textColor="#aaa" />
+
+                <View style="@style/AppLine" />
+
+                <TextView
+                    android:id="@+id/sAliPay"
+                    style="@style/MapBottomItem"
+                    android:text="支付宝" />
+
+                <LinearLayout
+                    android:id="@+id/mWxPayLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View style="@style/AppLine" />
+
+                    <TextView
+                        android:id="@+id/sWXPay"
+                        style="@style/MapBottomItem"
+                        android:text="微信支付" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/Margin15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_10"
+            app:cardCornerRadius="@dimen/dp_15"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/sCancel"
+                style="@style/MapBottomItem"
+                android:text="取消"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
