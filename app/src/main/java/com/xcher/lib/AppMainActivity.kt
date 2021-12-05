@@ -6,6 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ktx.lib.base.BaseActivity
 import com.ktx.lib.base.BaseBindAdapter
+import com.ktx.lib.dialogBinding
+import com.ktx.lib.dialogBottom
+import com.ktx.lib.dialogCenter
 import com.ktx.lib.utils.UHandler
 import com.ktx.lib.widget.Progress
 import com.ktx.lib.widget.XHandler
@@ -20,6 +23,8 @@ class AppMainActivity : BaseActivity<OnSellViewModel, ActivityMainLayoutBinding>
 
     private var lists: List<OnSellBean.TbkDgOptimusMaterialResponse.ResultList.MapData>? = null
 
+    private lateinit var bottom: XDialog
+
     private val mAdapter by lazy {
         OnSellAdapter(R.layout.ui_onsell_item_layout)
     }
@@ -27,24 +32,21 @@ class AppMainActivity : BaseActivity<OnSellViewModel, ActivityMainLayoutBinding>
     private lateinit var mDialog: XDialog
 
     override fun initView() {
-//        val dialogBinding =
-//            createDialogBinding<UiTestDialogLayoutBinding>(R.layout.ui_test_dialog_layout)
-//        mDialog = mDialogManager.bottom(this, dialogBinding.root)
-//
-//        mBinding.mRecyclerList.run {
-//            layoutManager = LinearLayoutManager(this@AppMainActivity)
-//            adapter = mAdapter
-//        }
-//
-//        val handler = UHandler.handleMessage(this, this)
-//        handler.sendEmptyMessageDelayed(0, 5000)
-//
-//        mAdapter.setOnItemClickListener(this)
 
+        val dialogBinding = dialogBinding<UiTestDialogLayoutBinding>(R.layout.ui_test_dialog_layout)
+        bottom = dialogBottom(dialogBinding.root)
+        bottom.setOnDismissListener {
+            alert("dismiss")
+        }
+
+        dialogBinding.sAliPay.setOnClickListener {
+            alert("支付宝")
+            bottom.dismiss()
+        }
 
         mBinding.run {
             mPaging.setOnClickListener {
-                go(AppPagingActivity::class.java)
+                bottom.show()
             }
         }
     }
@@ -73,8 +75,9 @@ class AppMainActivity : BaseActivity<OnSellViewModel, ActivityMainLayoutBinding>
     }
 
     override fun onItemClick(position: Int) {
-        postValue("test", lists!![position].title)
-        go(AppOtherActivity::class.java)
+        bottom.show()
+//        postValue("test", lists!![position].title)
+//        go(AppOtherActivity::class.java)
     }
 
 }

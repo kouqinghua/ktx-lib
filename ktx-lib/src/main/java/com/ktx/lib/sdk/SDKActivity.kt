@@ -20,7 +20,6 @@ import com.ktx.lib.base.LoadState
 import com.ktx.lib.databinding.ActivityBaseLayoutBinding
 import com.ktx.lib.databinding.UiLoadingLayoutBinding
 import com.ktx.lib.manager.ActivityManager
-import com.ktx.lib.manager.DialogManager
 import com.ktx.lib.manager.SharedManager
 import com.ktx.lib.manager.SlideBackManager
 import com.ktx.lib.utils.StatusBar
@@ -49,10 +48,6 @@ abstract class SDKActivity<T : ViewDataBinding>(private val layoutId: Int) : App
 
     private val mActivityManager by lazy {
         ActivityManager.instance
-    }
-
-    protected val mDialogManager by lazy {
-        DialogManager.instance
     }
 
     protected val mSharedManager by lazy {
@@ -185,7 +180,6 @@ abstract class SDKActivity<T : ViewDataBinding>(private val layoutId: Int) : App
         }
     }
 
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -288,13 +282,6 @@ abstract class SDKActivity<T : ViewDataBinding>(private val layoutId: Int) : App
         mBaseBinding.mTitleBarLayout.run {
             this.mBaseBack.visibility = GONE
         }
-    }
-
-    protected fun <B : ViewDataBinding> createDialogBinding(resId: Int):  B {
-        return DataBindingUtil.inflate(LayoutInflater.from(this),
-            resId,
-            null,
-            false)
     }
 
     interface OnRightClickListener {

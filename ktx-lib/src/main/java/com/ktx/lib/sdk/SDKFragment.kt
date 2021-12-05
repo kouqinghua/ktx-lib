@@ -15,7 +15,6 @@ import com.gyf.barlibrary.ImmersionBar
 import com.ktx.lib.R
 import com.ktx.lib.base.LoadState
 import com.ktx.lib.databinding.FragmentBaseLayoutBinding
-import com.ktx.lib.manager.DialogManager
 import com.ktx.lib.manager.SharedManager
 import com.ktx.lib.utils.UHandler
 import com.ktx.lib.widget.Progress
@@ -27,10 +26,6 @@ abstract class SDKFragment<T : ViewDataBinding>(private val layoutId: Int) :Frag
 
     protected val mActivity by lazy {
         requireActivity()
-    }
-
-    protected val mDialogManager by lazy {
-        DialogManager.instance
     }
 
     protected val mSharedManager by lazy {
